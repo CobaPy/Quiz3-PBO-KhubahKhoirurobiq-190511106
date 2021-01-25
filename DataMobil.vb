@@ -1,4 +1,4 @@
-﻿Public Class DataMobil
+Public Class DataMobil
     
     Private Sub cekNopol()
         oMobil.Carimobil(txtNopol.Text)
@@ -13,13 +13,15 @@
         End If
     End Sub
     Private Sub Simpan()
-        oMobil.nopol = txtNopol.Text
-        oMobil.jenis = cbxJenisMobil.Text
-        oMobil.merk = cbxMerk.Text
-        oMobil.nama_mobil = txtNamaMobil.Text
-        oMobil.harga = txtHargaSewa.Text
-        oMobil.ketersediaan = cbxKetersediaan.Text
-        oMobil.Simpan()
+        If (txtNopol.Text <> "" And cbxJenisMobil.Text <> "" And cbxMerk.Text <> "" And txtNamaMobil.Text <> "" And txtHargaSewa.Text <> "" And cbxKetersediaan.Text <> "") Then
+            oMobil.nopol = txtNopol.Text
+            oMobil.jenis = cbxJenisMobil.Text
+            oMobil.merk = cbxMerk.Text
+            oMobil.nama_mobil = txtNamaMobil.Text
+            oMobil.harga = txtHargaSewa.Text
+            oMobil.ketersediaan = cbxKetersediaan.Text
+            oMobil.Simpan()
+        End If
     End Sub
     Private Sub getMerk()
         oMerk.getMerk()
