@@ -1,4 +1,4 @@
-﻿Public Class ClassTransaksi
+Public Class ClassTransaksi
     Dim strsql As String
     Dim info As String
     Private _idtransaksi As Integer
