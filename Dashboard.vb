@@ -1,6 +1,10 @@
-﻿Public Class Dashboard
+Public Class Dashboard
     Private Sub LoadDashboardData()
         oTransaksi.getDashboardData(DataGridView1)
+        oMobil.CekKetersediaan()
+        lblKetersediaan.Text = oMobil.dataKetersediaan
+        oTransaksi.CekTransaksiAktif()
+        lblTransaksiAktif.Text = oTransaksi.transaksiAktif
     End Sub
 
     Private Sub btnUsers_Click(sender As System.Object, e As System.EventArgs) Handles btnUsers.Click
@@ -13,10 +17,20 @@
 
     Private Sub Dashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         LoadDashboardData()
-        oMobil.CekKetersediaan()
-        lblKetersediaan.Text = oMobil.dataKetersediaan
-        oTransaksi.CekTransaksiAktif()
-        lblTransaksiAktif.Text = oTransaksi.transaksiAktif
+    End Sub
+
+    Private Sub ButtonItem8_Click(sender As System.Object, e As System.EventArgs) Handles ButtonItem8.Click
+        Laporan.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnControlSewa_Click(sender As System.Object, e As System.EventArgs) Handles btnControlSewa.Click
+        Transaksi.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnControlPengembalian_Click(sender As System.Object, e As System.EventArgs) Handles btnControlPengembalian.Click
+        Pengembalian.ShowDialog()
     End Sub
 
     Private Sub bntSewa_Click(sender As System.Object, e As System.EventArgs) Handles bntSewa.Click
@@ -36,17 +50,7 @@
         TambahMerk.ShowDialog()
     End Sub
 
-    Private Sub ButtonItem8_Click(sender As System.Object, e As System.EventArgs) Handles ButtonItem8.Click
-        Laporan.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnControlSewa_Click(sender As System.Object, e As System.EventArgs) Handles btnControlSewa.Click
-        Transaksi.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnControlPengembalian_Click(sender As System.Object, e As System.EventArgs) Handles btnControlPengembalian.Click
-        Pengembalian.ShowDialog()
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        LoadDashboardData()
     End Sub
 End Class
